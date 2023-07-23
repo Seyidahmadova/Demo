@@ -72,6 +72,8 @@
     rgba(255, 255, 255, 0.16),
     rgba(255, 255, 255, 0.16)
   );
+
+  position: relative;
 }
 
 .submenu,
@@ -91,18 +93,20 @@
   align-items: center;
 }
 
-.vector {
-  margin-top: 18px;
+.down-arrow{
+  top: 10px;
+  right: 12px;
+  position: absolute;
 }
 
-.vector1 {
-  font-size: 11px;
-  transform: rotate(149deg) translate(0.1em, 0em);
+.arrow {
+  border: solid rgba(255, 255, 255, 1);
+  border-width: 0 1.6px 1.6px 0;
+  display: inline-block;
+  padding: 3px;
 }
-
-.vector2 {
-  font-size: 11px;
-  transform: rotate(31deg) translate(-0.43em, -1.6em);
+.down {
+  transform: rotate(45deg);
 }
 
 .options {
