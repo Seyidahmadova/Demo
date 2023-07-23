@@ -85,6 +85,7 @@
   text-align: left;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+  cursor: default;
 }
 
 .select {
@@ -93,7 +94,7 @@
   align-items: center;
 }
 
-.down-arrow{
+.down-arrow {
   top: 10px;
   right: 12px;
   position: absolute;
@@ -133,6 +134,7 @@
     rgba(255, 255, 255, 0.16),
     rgba(255, 255, 255, 0.16)
   );
+  cursor: default;
 }
 
 .navbar-right {
@@ -183,6 +185,21 @@
 
 .watchlist {
   position: relative;
+}
+
+.watchlist:hover,
+.signin:hover {
+  background: linear-gradient(
+      169.15deg,
+      rgba(15, 247, 240, 0.4) 0%,
+      rgba(214, 134, 255, 0.4) 96.79%
+    ),
+    radial-gradient(
+      100% 100% at 0% 0%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  cursor: default;
 }
 
 .watchlists {
@@ -280,7 +297,8 @@
   background-color: black;
 }
 
-.movies {
+.movies,
+.movies2 {
   display: flex;
   gap: 15px;
   justify-content: center;
@@ -293,7 +311,19 @@
   flex-direction: column;
   width: 250px;
   border-radius: 8px;
-  border: 1px solid white;
+  border: 1px solid;
+  transition: transform 0.3s ease;
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  margin-bottom: 20px;
+}
+
+.movie-item:hover {
+  transform: scale(1.2);
+  z-index: 1;
 }
 
 .movie-item-photo > a > img {
@@ -314,7 +344,7 @@
 
 .movie-item-name > div {
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-around;
   gap: 10px;
   font-size: 12px;
   line-height: 14px;
@@ -349,12 +379,11 @@
       169.15deg,
       rgba(15, 247, 240, 0.4) 0%,
       rgba(214, 134, 255, 0.4) 96.79%
-    ), */
-    radial-gradient(
-        100% 100% at 0% 0%,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(255, 255, 255, 0) 100%
-      );
+    ), */ radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 
   box-shadow: -2.062026023864746px -2.062026023864746px 103.10130310058594px 0px
     rgba(255, 255, 255, 0.02) inset;
@@ -371,8 +400,16 @@
   transform: rotate(134deg) translate(-0.07em, 0.07em);
 }
 
+.like-button:hover,
+.play-button:hover,
+.dislike-button:hover {
+  background: radial-gradient(100% 100% at 0% 0%, #0cf9f0 0%, #d686ff 100%);
+}
 
-.prev-button, .next-button{
+.prev-button,
+.next-button,
+.prev-button2,
+.next-button2 {
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -387,24 +424,100 @@
   position: absolute;
   transform: translateY(-50%);
   cursor: pointer;
-
 }
 
-.prev-button{
+.prev-button,
+.prev-button2 {
   left: 0;
 }
 
-.next-button{
+.next-button,
+.next-button2 {
   right: 0;
 }
 
-
-
-.slider{
+.slider,
+.slider2 {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   position: relative;
   max-width: 1100px;
   overflow: hidden;
   margin-bottom: 3rem;
+}
+
+.form {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: -2.418426275253296px -2.418426275253296px 120.92131805419922px 0px
+    rgba(255, 255, 255, 0.02) inset;
+  border-radius: 30px;
+  transform: rotate(0deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  gap: 20px;
+}
+
+.form-title {
+  font-family: Gilroy-Bold;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 20px;
+}
+
+.form-question {
+  font-family: Gilroy-Bold;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.li-pair{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.li-pair > label {
+  font-family: Gilroy-Bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+}
+
+.email,
+.pass {
+  color: #757575;
+  display: flex;
+  width: 260px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #0ff7f0 0%, #d685ff 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(0deg, #0d0d0d, #0d0d0d),
+    linear-gradient(180deg, #0ff7f0 0%, #d685ff 100%);
+    border-image: linear-gradient(180deg, #0ff7f0 0%, #d685ff 100%); /* Use linear gradient for border */
+  border-image-slice: 1;
+  padding: 10px 15px;
+}
+
+.email:focus, .pass:focus{
+  outline: none;
 }
