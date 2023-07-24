@@ -1,6 +1,6 @@
 # Demo
 
-## [Live Demo](https://seyidahmadova.github.io/Demo/)
+## [Live Demo]()
 
 <img width="949" alt="image" src="https://github.com/Seyidahmadova/Demo/assets/80168192/5c468101-990e-483e-a731-bd7813d3202d">
 
