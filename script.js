@@ -224,7 +224,7 @@ reactbtns.forEach((el) => {
   el.style.display = "none";
 });
 
-// in chrome browser you must click for working  or change them to 'mouseenter' and 'mouseout'
+// in chrome browser you must click for working (maybe it is on me)
 
 const movieItems = document.querySelectorAll(".movie-item");
 
