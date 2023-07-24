@@ -802,6 +802,20 @@
   .movie-item-name > div {
     font-size: 8px;
   }
+
+  .reaction-buttons >div {
+    width: 25px;
+    height: 25px;
+  }
+
+  .like-svg >svg , .play-svg >svg{
+    width: 10px;
+    height: 10px;
+  } 
+
+  .dislike-vector{
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 435px) {
