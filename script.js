@@ -1,4 +1,5 @@
 const select = document.querySelector(".select");
+const dropdown = document.querySelector(".dropdown")
 const options = document.querySelector(".options");
 const option = document.querySelectorAll(".option");
 const watchlists = document.querySelector(".watchlists");
@@ -11,11 +12,20 @@ const nextbtn = document.querySelector(".next-button");
 const movies2 = document.querySelector(".movies2");
 const prevbtn2 = document.querySelector(".prev-button2");
 const nextbtn2 = document.querySelector(".next-button2");
-const signin = document.querySelector(".signin")
+const signin = document.querySelector(".signin");
+const allElements = document.querySelectorAll("*");
+const form = document.querySelector(".form");
+const formExit = document.querySelector(".form-exit");
+const blurLay = document.querySelector(".blurlay");
+const burger = document.querySelector(".burger");
+const burgerBar = document.querySelectorAll(".burger-bar");
+const menu = document.querySelector(".menu");
+const menuContainer = document.querySelector(".menu-container");
+const logo = document.querySelector(".logo");
 
 options.style.display = "none";
 
-select.addEventListener("click", function () {
+dropdown.addEventListener("click", function () {
   options.style.display = options.style.display === "none" ? "flex" : "none";
 });
 
@@ -170,11 +180,9 @@ let slideIndex = 0;
 let slideWidth = movies.children[0].offsetWidth;
 
 prevbtn.addEventListener("click", function () {
-//   if(slideIndex){
-    slideIndex =
+  slideIndex =
     (slideIndex - 1 + movies.children.length) % movies.children.length;
   UpdateSliderPosition();
-//   }
 });
 
 nextbtn.addEventListener("click", function () {
@@ -183,12 +191,9 @@ nextbtn.addEventListener("click", function () {
 });
 
 function UpdateSliderPosition() {
-    let slideWidth = movies.children[0].offsetWidth;
+  let slideWidth = movies.children[0].offsetWidth;
   movies.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
 }
-
-
-
 
 let slideIndex2 = 0;
 let slideWidth2 = movies2.children[0].offsetWidth;
@@ -205,44 +210,70 @@ nextbtn2.addEventListener("click", function () {
 });
 
 function UpdateSliderPosition2() {
-    let slideWidth2 = movies2.children[0].offsetWidth;
+  let slideWidth2 = movies2.children[0].offsetWidth;
   movies2.style.transform = `translateX(-${slideWidth2 * slideIndex2}px)`;
 }
 
-
 const reactbtns = document.querySelectorAll(".reaction-buttons");
 
-reactbtns.forEach(el => {
-    el.style.display = 'none'
-})
-
+reactbtns.forEach((el) => {
+  el.style.display = "none";
+});
 
 // in chrome browser you must click for working  or change them to 'mouseenter' and 'mouseout'
 
-const movieItems = document.querySelectorAll('.movie-item');
+const movieItems = document.querySelectorAll(".movie-item");
 
-movieItems.forEach(el => {
-    el.addEventListener('mouseover', function() {
-      const reactionButtons = this.querySelector('.reaction-buttons');
-      if (reactionButtons) {
-        reactionButtons.style.display = 'flex';
-      }
-    });
-
-    el.addEventListener('mouseleave', function() {
-      const reactionButtons = this.querySelector('.reaction-buttons');
-      if (reactionButtons) {
-        reactionButtons.style.display = 'none';
-      }
-    });
+movieItems.forEach((el) => {
+  el.addEventListener("mouseover", function () {
+    const reactionButtons = this.querySelector(".reaction-buttons");
+    if (reactionButtons) {
+      reactionButtons.style.display = "flex";
+    }
   });
 
+  el.addEventListener("mouseleave", function () {
+    const reactionButtons = this.querySelector(".reaction-buttons");
+    if (reactionButtons) {
+      reactionButtons.style.display = "none";
+    }
+  });
+});
 
-signin.addEventListener('click', function(){
-    
-})
+form.style.display = "none";
+blurLay.style.display = "none";
 
+signin.addEventListener("click", function () {
+  form.style.display = "flex";
+  blurLay.style.display = "block";
+});
 
+formExit.addEventListener("click", function () {
+  form.style.display = "none";
+  blurLay.style.display = "none";
+});
 
+menuContainer.style.display = "none";
 
+burger.addEventListener("click", function () {
+  burgerBar.forEach((el) => {
+    el.classList.remove("unclicked");
+    el.classList.toggle("clicked");
+  });
+  menu.classList.toggle("active");
+  menuContainer.style.display =
+    menuContainer.style.display === "none" ? "flex" : "none";
+});
 
+const barClicked = Array.from(burgerBar).some((el) =>
+  el.classList.contains("clicked")
+);
+
+const screenWidth = window.innerWidth;
+
+if (!barClicked) {
+  burgerBar.forEach((el) => {
+    el.classList.remove("clicked");
+    el.classList.add("unclicked");
+  });
+}
