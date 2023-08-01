@@ -206,15 +206,34 @@
   cursor: default;
 }
 
-.watchlists {
+
+.watchlist-container{
   position: absolute;
+  /* height: 100%; */
   top: 4.3rem;
   right: 7rem;
+  z-index: 1;
+  /* overflow: hidden; */
+  /* height: 290px; */
+}
+
+.watchlists {
+  /* position: absolute;
+  right: 0; */
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 12px;
-  z-index: 1;
+  padding: 12px 30px 12px 12px;
+  /* top: 4.3rem;
+  right: 7rem;
+  z-index: 1; */
+  height: 290px;
+  overflow: auto ;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  scrollbar-width: none;
+  
 
   border-radius: 6.977209568023682px;
   border: 0.8436933159828186px;
@@ -227,6 +246,12 @@
   );
   box-shadow: -2.1092333793640137px -2.1092333793640137px 105.46166229248047px 0px
     rgba(255, 255, 255, 0.02) inset;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.watchlists::-webkit-scrollbar {
+  display: none;
 }
 
 .watchlist-item {
@@ -265,7 +290,7 @@
 }
 
 .exit {
-  position: fixed;
+  position: absolute;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -292,6 +317,45 @@
   font-size: 11px;
   transform: rotate(135deg) translate(-0.5em, 0.35em);
 }
+
+.scroll {
+  position: absolute;
+  top: 0rem;
+  right: 0.6rem;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2.49px solid rgba(255, 255, 255, 0.4);
+  box-shadow: -1.7471857070922852px -1.7471857070922852px 104.83114624023438px 0px
+    rgba(0, 0, 0, 0);
+  width: 2px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.scroll-thumb {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -7.5px;
+  border-radius: 50%;
+  background: linear-gradient(
+    183.12deg,
+    rgba(12, 249, 240, 0.5) -35.03%,
+    rgba(214, 134, 255, 0.5) 119.79%
+  );
+  /* 1box-shadow: -3.8567774295806885px -3.8567774295806885px 192.83888244628906px 0px rgba(255, 255, 255, 0.02) inset; */
+  box-shadow: 0px 0px 3.4943714141845703px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+
+
+
+
+/* main part */
 
 .main {
   width: 100%;
@@ -331,7 +395,6 @@
 .movie-item:hover {
   transform: scale(1.2);
   height: auto;
-
 }
 
 .movie-item-photo > a > img {
@@ -806,17 +869,18 @@
     font-size: 8px;
   }
 
-  .reaction-buttons >div {
+  .reaction-buttons > div {
     width: 25px;
     height: 25px;
   }
 
-  .like-svg >svg , .play-svg >svg{
+  .like-svg > svg,
+  .play-svg > svg {
     width: 10px;
     height: 10px;
-  } 
+  }
 
-  .dislike-vector{
+  .dislike-vector {
     font-size: 10px;
   }
 }
@@ -872,7 +936,7 @@
   .menu.active > div {
     font-size: 12px;
   }
-  .burger{
+  .burger {
     margin-left: -3rem;
   }
 }

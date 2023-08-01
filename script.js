@@ -1,8 +1,9 @@
 const select = document.querySelector(".select");
-const dropdown = document.querySelector(".dropdown")
+const dropdown = document.querySelector(".dropdown");
 const options = document.querySelector(".options");
 const option = document.querySelectorAll(".option");
 const watchlists = document.querySelector(".watchlists");
+const watchlistContainer = document.querySelector(".watchlist-container")
 const watchlist = document.querySelector(".watchlist");
 const exit = document.querySelector(".exit");
 const slider = document.querySelector(".slider");
@@ -22,6 +23,9 @@ const burgerBar = document.querySelectorAll(".burger-bar");
 const menu = document.querySelector(".menu");
 const menuContainer = document.querySelector(".menu-container");
 const logo = document.querySelector(".logo");
+const scrollBar = document.querySelector(".scroll");
+const scrollBarThumb = document.querySelector(".scroll-thumb");
+// const container = document.querySelector(".container")
 
 options.style.display = "none";
 
@@ -36,14 +40,14 @@ option.forEach((el) => {
   });
 });
 
-watchlists.style.display = "none";
+watchlistContainer.style.display = "none";
 
 watchlist.addEventListener("click", function () {
-  watchlists.style.display = "flex";
+  watchlistContainer.style.display = "flex";
 });
 
 exit.addEventListener("click", function () {
-  watchlists.style.display = "none";
+  watchlistContainer.style.display = "none";
 });
 
 for (let i = 0; i < 15; i++) {
@@ -281,3 +285,42 @@ if (!barClicked) {
     el.classList.add("unclicked");
   });
 }
+
+for (let i = 0; i < 10; i++) {
+  watchlists.innerHTML += `
+  
+  <div class="watchlist-item">
+              <div class="watchlist-item-photo">
+                <a>
+                  <img src="./assets/Rectangle 57.png" />
+                </a>
+              </div>
+              <div class="watchlist-item-name">The Witcher</div>
+              <div class="delete">
+                <div class="delete-vector1">|</div>
+                <div class="delete-vector2">|</div>
+              </div>
+            </div>
+
+  `;
+}
+
+
+watchlists.addEventListener("scroll", ()=>{
+  function getScrollBarHeight(){
+    const scrollBarHeight = watchlists.scrollHeight - watchlists.clientHeight
+    const scrollPercentage = watchlists.scrollTop / scrollBarHeight;
+    const thumbOffset = scrollPercentage * (watchlists.clientHeight - scrollBarThumb.clientHeight);
+    scrollBarThumb.style.top = `${thumbOffset}px`;
+
+
+    console.log('thumbOffset', thumbOffset)
+    console.log('difference', (watchlists.clientHeight - scrollBarThumb.clientHeight))
+    console.log('scrollBarThumb.clientHeight', scrollBarThumb.clientHeight)
+    console.log('watchlists.scrollTop', watchlists.scrollTop)
+    console.log('scrollPercentage', scrollPercentage)
+  }
+  getScrollBarHeight()
+});
+
+
